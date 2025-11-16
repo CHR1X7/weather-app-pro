@@ -1,0 +1,34 @@
+/* Keep custom animations; use Tailwind for layout */
+body.theme-clear { background: linear-gradient(180deg,#8fd3fe,#ffffff 55%); transition: background .6s ease; }
+body.theme-cloudy { background: linear-gradient(180deg,#c8d7e8,#eef3f8 55%); transition: background .6s ease; }
+body.theme-rain  { background: linear-gradient(180deg,#97a9bd,#d7e1ec 55%); transition: background .6s ease; }
+body.theme-hot   { background: linear-gradient(180deg,#ffcf6d,#ffd9a3 55%); transition: background .6s ease; }
+
+.anim-stage { position: relative; height: 200px; overflow: hidden; background: transparent; }
+
+.sun { position: absolute; top: 24px; left: 24px; width: 80px; height: 80px; border-radius: 50%;
+  background: radial-gradient(#ffe57f, #ffc107); box-shadow: 0 0 30px rgba(255,193,7,.6); animation: sunPulse 3s ease-in-out infinite; }
+@keyframes sunPulse { 0%,100% { transform: scale(1); filter: brightness(1); } 50% { transform: scale(1.06); filter: brightness(1.1); } }
+.sun:before, .sun:after { content: ""; position: absolute; inset: -12px; border-radius: 50%;
+  border: 6px dashed rgba(255,193,7,.6); animation: raysSpin 10s linear infinite; }
+.sun:after { inset: -22px; border-width:5px; opacity:.6; animation-duration:14s; }
+@keyframes raysSpin { to { transform: rotate(360deg); } }
+
+.cloud { position: absolute; top: 40px; width: 140px; height: 50px; background: #ffffff; border-radius: 50px;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,.12)); animation: cloudDrift 24s linear infinite; }
+.cloud:before, .cloud:after { content:""; position: absolute; background:#fff; width:70px; height:70px; border-radius:50%; top:-30px; }
+.cloud:before { left:20px; } .cloud:after { left:60px; width:90px; height:90px; top:-45px; }
+.cloud.c1 { left:-160px; animation-delay:0s; }
+.cloud.c2 { top:70px; left:-240px; transform:scale(.9); animation-delay:6s; opacity:.9; }
+.cloud.c3 { top:15px; left:-300px; transform:scale(1.1); animation-delay:12s; opacity:.85; }
+@keyframes cloudDrift { to { transform: translateX(120%); } }
+
+.raindrop { position: absolute; top: -20px; width: 2px; height: 16px; border-radius: 1px;
+  background: rgba(30,60,100,.8); animation: rainFall 1.2s linear infinite; }
+@keyframes rainFall { to { transform: translateY(240px); opacity: .2; } }
+
+.windline { position:absolute; left:-20px; width:120px; height:2px; background: rgba(255,255,255,.5);
+  border-radius:2px; top: 140px; animation: windSweep 3.5s linear infinite; }
+.windline.w2 { top: 160px; animation-delay: .8s; width: 90px; }
+.windline.w3 { top: 180px; animation-delay: 1.6s; width: 130px; }
+@keyframes windSweep { to { transform: translateX(130%); opacity:.1; } }

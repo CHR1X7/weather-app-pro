@@ -1,162 +1,140 @@
-# 🌦️ Weather App Pro  
-**AI Engineer Intern – Technical Assessment (Full-Stack)**  
-**By: Christina Abdallah**
 
-A complete weather-driven full-stack application built as part of the **PM Accelerator AI Engineer Intern** technical assessment.  
-The app retrieves real-time weather data, processes 5-day forecasts, saves user queries to a database, provides CRUD functionality, exports data in multiple formats, displays an interactive map, and adapts its UI dynamically based on weather conditions.
+# 🌦️ Weather App Pro  
+**AI Engineer Intern – Full-Stack Technical Assessment**  
+**Built by: Christina Abdallah**
+
+Weather App Pro is a full-stack weather intelligence system developed for the **PM Accelerator AI Engineer Internship** technical assessment.  
+It goes beyond basic weather retrieval by integrating forecasting, geolocation, CRUD operations with persistence, data export, map visualization, and dynamic UI behavior based on real-world conditions.
+
+This project demonstrates full-stack engineering, API integration, data modeling, and attention to user experience — aligned with the expectations of an AI/ML/GenAI internship.
 
 ---
 
 # 🔥 Features Overview
 
-### ⭐ Core Requirements (Assessment 1)
-- Search weather by **city, ZIP code, GPS coordinates, or landmarks**  
-- Real-time data via **Open-Meteo API** (no keys required)  
-- Clean weather summary + detailed forecast  
-- **5-day forecast** included  
-- **Current-location weather** using Geolocation API  
-- Icons, animations, and visual indicators for weather states (clear, cloudy, hot, rainy)
+## ⭐ Assessment 1 – Core Requirements
+- Search weather by **city name, ZIP code, GPS coordinates, or landmarks**
+- Real-time data via **Open-Meteo API** (no API key needed)
+- Clean, responsive weather summary
+- **5-day forecast**
+- **Use My Location** (via HTML5 Geolocation API)
+- Weather-based icons + animations (clear, cloudy, rainy, hot, windy)
 
 ---
 
-### ⭐ Advanced Requirements (Assessment 2)
-#### ✔ CRUD + Database (Mandatory)
-- CREATE: Save weather queries (location + date range)  
-- READ: Load previously saved queries  
-- UPDATE: Modify location/date range and auto-refresh results  
-- DELETE: Remove entries  
-- Validates:
-  - Location existence (geocoding)  
-  - Date ranges  
-  - Input correctness  
+## ⭐ Assessment 2 – Advanced Requirements
 
-#### ✔ Data Persistence
-- **SQLite database**
-- **SQLAlchemy ORM**
+### ✔ CRUD + Database (Mandatory)
+- **CREATE**: Save location + date ranges and fetch temperatures  
+- **READ**: Display all saved entries  
+- **UPDATE**: Modify saved queries with validation  
+- **DELETE**: Remove records  
 
-#### ✔ Extra API Integrations (Optional)
-- Open-Meteo Geocoding API  
-- Reverse Geocoding (for “Use My Location”)  
-- Leaflet + OpenStreetMap tiles for map display  
+Validations include:
+- Location existence  
+- Date range logic  
+- Input format checks  
 
-#### ✔ Data Export (Optional)
-Export all data from the DB as:
+### ✔ Persistence Layer
+- SQLite  
+- SQLAlchemy ORM  
+- Clean models & schemas  
+
+### ✔ Additional API Integrations (Bonus)
+- Open-Meteo Geocoding  
+- Reverse Geocoding  
+- Leaflet + OpenStreetMap  
+
+### ✔ Data Export (Bonus)
+Export stored queries as:
 - JSON  
 - CSV  
 - XML  
 - Markdown  
 
-#### ✔ AI-Enhanced User Experience (Bonus)
-- Intelligent “AI Tips” based on weather patterns  
-(e.g., rain warnings, cold-weather advice, wind suggestions)
+### ✔ AI Smart Tips (Bonus)
+Dynamic weather-based suggestions:
+- Umbrella reminders  
+- Heat safety  
+- Cold weather clothing  
+- Wind advisories  
 
 ---
 
 # 🧠 Tech Stack
 
 ### **Frontend**
-- HTML  
+- HTML5  
 - JavaScript  
 - TailwindCSS  
-- Leaflet Maps  
-- CSS Animations (sun, clouds, rain, wind)
+- Leaflet  
+- CSS animations  
 
 ### **Backend**
 - FastAPI  
 - SQLite  
 - SQLAlchemy  
-- Pydantic Validation  
+- Pydantic  
 - Uvicorn  
-
-### **APAPIs**
-- Open-Meteo Forecast API  
-- Open-Meteo Geocoding API  
-- OpenStreetMap (Leaflet tiles)
 
 ---
 
-# 🚀 Running the Project
+# 🚀 Live Deployment
 
-## 📌 Backend Setup
-```bash
+### **Frontend (Netlify)**
+🔗 https://ca-weather-app-pro.netlify.app
+
+### **Backend API (Render)**
+🔗 https://weather-app-pro-9wqg.onrender.com  
+API Docs: https://weather-app-pro-9wqg.onrender.com/docs
+
+---
+
+# 🖥️ Running Locally
+
+## 1️⃣ Backend
+```
 cd backend
 python -m venv .venv
-# Windows
 .venv\Scripts\activate
-# macOS/Linux
-source .venv/bin/activate
-
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
-Backend starts at:  
-👉 http://127.0.0.1:8000
-
-API docs:  
-👉 http://127.0.0.1:8000/docs
-
----
-
-## 📌 Frontend Setup
-Option 1 — open directly:  
-➡️ Open `frontend/index.html` in your browser  
-
-Option 2 — run local web server:
-```bash
+## 2️⃣ Frontend
+```
 cd frontend
 python -m http.server 5500
 ```
-Frontend:  
-👉 http://127.0.0.1:5500
+
+Open:
+```
+http://127.0.0.1:5500
+```
+
+### 👉 Auto-detect backend:
+- Local → 127.0.0.1:8000  
+- Deployed → Render backend  
 
 ---
 
-# 📡 API Endpoints
-
-### Weather Logic
-- `POST /queries` – Create + fetch weather  
-- `GET /queries` – List all saved queries  
-- `GET /queries/{id}` – View one  
-- `PUT /queries/{id}` – Update saved entry  
-- `DELETE /queries/{id}` – Delete entry  
-
-### Exports
-- `GET /export?format=json`  
-- `GET /export?format=csv`  
-- `GET /export?format=xml`  
-- `GET /export?format=md`  
-
----
-
-# 🗺️ App Highlights (for reviewers)
-- Interactive weather-based animations  
-- Forecast-driven theme change (clear, hot, cloudy, rainy)  
-- Interactive Leaflet map showing chosen location  
-- AI-generated travel/weather tips  
-- CRUD interface with live updates  
-- Professionally structured backend with validation  
-- Full end-to-end engineering: UI → API → DB → Export
+# 📡 API Overview
+CRUD endpoints, export formats, and weather retrieval documented at:  
+➡️ https://weather-app-pro-9wqg.onrender.com/docs
 
 ---
 
 # 🎥 Demo Video
-*(Insert your video link here once recorded)*
+
 
 ---
 
-# 👩🏻‍💻 About the Developer  
-**Christina Abdallah – Aspiring AI Engineer**  
-Applying for the **AI/ML/GenAI Engineer Intern** role and preparing for the  
-**Master’s in Artificial Intelligence & Data Science at HHU Düsseldorf**.
-
-This project demonstrates my ability to:
-- Build full-stack AI-powered applications  
-- Integrate APIs and design data pipelines  
-- Work across frontend, backend, and database layers  
-- Transform data into actionable, user-friendly insights  
+# 👩🏻‍💻 About the Developer
+**Christina Abdallah — Future AI Engineer**  
+Computer Science graduate preparing for **AI & Data Science Master’s at HHU Düsseldorf**.
 
 ---
 
 # 💬 Contact
-Feel free to reach out for collaboration or questions.
+- GitHub: https://github.com/CHR1X7  
+- Email: christinaabdallah05@gmail.com

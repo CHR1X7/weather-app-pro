@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "https://weather-app-pro-9wqg.onrender.com";
 const $ = (s) => document.querySelector(s);
 const savedDiv = $("#saved");
 const results = $("#results");

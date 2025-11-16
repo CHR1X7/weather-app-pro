@@ -126,6 +126,7 @@ CRUD endpoints, export formats, and weather retrieval documented at:
 
 # 🎥 Demo Video
 
+https://www.loom.com/share/cf8e0e6192ad430e95addfa2b40f29db?t=194
 
 ---
 
